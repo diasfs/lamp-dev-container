@@ -1,0 +1,7 @@
+{
+    "name": "LAMP Openweb",
+    "dockerComposeFile": "../docker-compose.yml",
+    "workspaceFolder": "/var/www/html",
+    "shutdownAction": "stopCompose",
+    "service": "php-apache-environment"
+}
