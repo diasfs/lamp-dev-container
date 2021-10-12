@@ -12,8 +12,6 @@
 - Extensão xdebug para VSCode
 
 ## Personalização ##
-
-- É possível personalizar o container principal através do arquivo php/Dockerfile
 - É possível personalizar o conjuto de containers no arquivo docker-compose.yml:
     - dados de conexão ao mysql
     - portas expostas
