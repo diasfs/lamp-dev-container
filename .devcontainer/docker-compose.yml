@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  app:
+    image: binho85/php:8.0
+    
+    depends_on:
+      - db
+    volumes:
+      - ../:/var/www/html:cached
+    command: /bin/bash -c "service apache2 start && sleep infinity"
+    network_mode: service:db
+    environment:
+      APACHE_RUN_USER: vscode
+      APACHE_RUN_GROUP: vscode
+      SHELL: /bin/bash
+  db:
+    image: mariadb:10.4
+    restart: unless-stopped
+    user: "1000:1000"
+    volumes: 
+      - ./mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mariadb
+      MYSQL_DATABASE: mariadb
+      MYSQL_USER: mariadb
+      MYSQL_PASSWORD: mariadb
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin    
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - app
+    
+    

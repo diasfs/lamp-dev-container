@@ -11,15 +11,6 @@
 - mkcert (https em localhost)
 - Extensão xdebug para VSCode
 
-## Arquivos de Configuração ##
-
-Os seguintes arquivos serão copiados para dentro do container:
-
-- php/etc/apache2/apache2.conf
-- php/etc/apache2/sites-enabled/*
-- php/etc/ssl/certs/*
-- php/usr/local/etc/php/conf.d/*
-
 ## Personalização ##
 
 - É possível personalizar o container principal através do arquivo php/Dockerfile

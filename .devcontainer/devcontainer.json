@@ -1,7 +1,39 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.194.3/containers/php-mariadb
+// Update the VARIANT arg in docker-compose.yml to pick a PHP version: 7, 7.3, 7.4 
 {
-    "name": "LAMP Openweb",
-    "dockerComposeFile": "../docker-compose.yml",
+    "name": "LAMP",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
     "workspaceFolder": "/var/www/html",
-    "shutdownAction": "stopCompose",
-    "service": "php-apache-environment"
+    // Set *default* container specific settings.json values on container create.
+    "settings": {
+        "editor.tabSize": 4,
+        "vetur.format.options.tabSize": 4        
+    },
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+        "felixfbecker.php-debug",
+        "bmewburn.vscode-intelephense-client",
+        "mrmlnc.vscode-apache",
+        "octref.vetur",
+        "github.copilot",
+        "mblode.twig-language-2",
+        "mrcrowl.easy-less",
+        "shd101wyy.markdown-preview-enhanced",
+        "humao.rest-client",
+        "softwaredotcom.swdc-vscode",
+        "formulahendry.auto-close-tag",
+        "recca0120.vscode-phpunit"
+    ],
+    // For use with PHP or Apache (e.g.php -S localhost:8080 or apache2ctl start)
+    "forwardPorts": [
+        80,
+        443,        
+        3306
+    ],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
+    // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode"
 }
